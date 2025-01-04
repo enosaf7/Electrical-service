@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head section and styles remain exactly the same -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMaT Electrical Services - Your Campus Electrical Expert</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        :root{--primary:#1a56db;--secondary:#4a5568;--success:#059669}body{font-family:Arial,sans-serif;margin:0;padding:0;line-height:1.6}.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;color:white;display:flex;justify-content:center;align-items:center;z-index:1000;opacity:1;transition:opacity .5s}.overlay-content{text-align:center}.overlay-content p{opacity:.5;filter:blur(1px);transition:opacity .5s,filter .5s}header{background-color:var(--primary);color:white;text-align:center;padding:2rem}nav{background-color:#f8f9fa;padding:1rem;text-align:center}nav a{color:var(--secondary);text-decoration:none;margin:0 1rem;font-weight:bold}section{padding:2rem;max-width:1200px;margin:0 auto}.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem}.service-card{border:1px solid #e2e8f0;border-radius:8px;padding:1.5rem;text-align:center}.cta-button{background-color:var(--primary);color:white;padding:.75rem 1.5rem;border-radius:4px;text-decoration:none;display:inline-block;margin-top:1rem;border:none;cursor:pointer}.contact-form{max-width:600px;margin:0 auto}.form-group{margin-bottom:1rem}.form-group label{display:block;margin-bottom:.5rem}.form-group input,.form-group textarea,.form-group select{width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:4px}footer{background-color:var(--secondary);color:white;text-align:center;padding:1rem;margin-top:2rem}.success-message{display:none;background-color:var(--success);color:white;padding:1rem;border-radius:4px;margin-top:1rem;text-align:center}.loading{display:none;text-align:center;margin-top:1rem}.spinner{border:8px solid #f3f3f3;border-top:8px solid var(--primary);border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:0 auto}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.banner{background-color:#ffcc00;color:#000;text-align:center;padding:1rem;font-size:1.5rem;font-weight:bold;position:relative;z-index:100}.countdown{font-size:1.2rem;margin-top:.5rem;font-weight:bold;color:#d9534f}.service-card:hover{transform:translateY(-5px);box-shadow:0 4px 20px rgba(0,0,0,.2)}@media(max-width:768px){header,nav,footer{padding:.5rem}.service-card{padding:1rem}.cta-button{padding:.5rem 1rem}}@media(max-width:480px){.services{grid-template-columns:1fr}.cta-button{width:100%}}
+    </style>
+</head>
+<body>
+    <!-- Modify the existing overlay content -->
+<div id="overlay" class="overlay">
+    <div class="overlay-content" id="overlayContent">
+        <p>You see how difficult it is to read in the dark</p>
+        <button id="showContentButton" class="cta-button">Turn on the Light</button>
+    </div>
+</div>
+
+<!-- The rest of the code remains unchanged -->
+    <header>
+        <h1>UMaT Electrical Services</h1>
+        <p>Professional Electrical Repairs & Installations for UMaT Students</p>
+    </header>
+
+    <div class="banner">
+        <p>🎉 Get 20% OFF on all services! Limited time offer! 🎉</p>
+        <div id="countdown" class="countdown"></div>
+    </div>
+
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.Oh_FXG3RzthcVh7x4EGTigAAAA?w=212&h=106&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Appliance Repairs" style="width: 100%; border-radius: 8px 8px 0 0;" loading="lazy">
+                <h3>Appliance Repairs</h3>
+                <p>Quick and reliable repairs for all your electrical appliances including kettles, irons, and hotplates.</p>
+                <button class="cta-button" onclick="scrollToFormWithService('repair')">Book Repair</button>
+            </div>
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.CXBDcjmlbe4Z3lqolm9fTgHaEK?w=308&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Installations" style="width: 100%; border-radius: 8px 8px 0 0;" loading="lazy">
+                <h3>Installations</h3>
+                <p>Expert installation of electrical appliances, lighting fixtures, and power outlets in your hostel room.</p>
+                <button class="cta-button" onclick="scrollToFormWithService('installation')">Request Installation</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Your trusted partner for all campus electrical needs! We specialize in delivering professional repairs and installations tailored for students like you. With years of expertise and a dedication to quality, we ensure your electrical appliances are safe, efficient, and in top condition.
+
+            Affordable, reliable, and student-focused, our services are designed to meet the unique needs of both on-campus and off-campus living. Choose us for hassle-free electrical solutions that you can count on! Let’s keep your appliances running smoothly—contact us today!</p>
+        
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form id="serviceRequest" action="https://formspree.io/f/xqaagqby" method="POST">
+                <div class="form-group">
+                    <label for="serviceType">Service Type:</label>
+                    <select id="serviceType" name="Service Type" required>
+                        <option value="">Select a service</option>
+                        <option value="repair">Appliance Repair</option>
+                        <option value="installation">Installation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID:</label>
+                    <input type="text" id="studentId" name="Student ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="Phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="hostel">Location (coordinates):</label>
+                    <input type="text" id="hostel" name="Location" required>
+                    <button type="button" onclick="getLocation()">Get My Location</button>
+                </div>
+                <div class="form-group">
+                    <label for="hostelName">Hostel Name:</label>
+                    <input type="text" id="hostelName" name="Hostel Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Describe the Problem/Service Needed:</label>
+                    <textarea id="description" name="Service Description" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit Request</button>
+                <div id="successMessage" class="success-message">
+                    Request submitted successfully! We'll contact you shortly.
+                </div>
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    Sending request...
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>UMaT Electrical Services | Contact: 
+            <a href="tel:+233596760174" class="footer-link">
+                📞 +233 596760174
+            </a> | 
+            <a href="https://wa.me/233596760174" class="footer-link">
+                💬 WhatsApp
+            </a> | Available 24/7 for Emergency Services
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('showContentButton').addEventListener('click', function() {
+            const overlay = document.getElementById('overlay');
+            const overlayContent = document.getElementById('overlayContent');
+            const music = document.getElementById('backgroundMusic');
+            music.play();
+            overlayContent.innerHTML = '<p>YOU TURN ON THE SWITCH BUT STILL IN DARKNESS</p>';
+            setTimeout(() => {
+                overlayContent.innerHTML = '<p>YOU NEED UMAT ELECTRICAL SERVICES</p><p>🔌💡⚡️</p>';
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            }, 3000);
+        });
+
+        function scrollToFormWithService(serviceType) {
+            const select = document.getElementById('serviceType');
+            select.value = serviceType;
+            const form = document.getElementById('contact');
+            form.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                document.getElementById('name').focus();
+            }, 800);
+        }
+
+        $("#serviceRequest").submit(function(e) {
+            e.preventDefault();
+            const form = $(this);
+            const loading = $("#loading");
+            const successMessage = $("#successMessage");
+            loading.show();
+            $.ajax({
+                url: form.attr("action"),
+                method: "POST",
+                data: form.serialize(),
+                dataType: "json",
+                success: function(response) {
+                    loading.hide();
+                    successMessage.show();
+                    form.trigger("reset");
+                    setTimeout(() => {
+                        successMessage.hide();
+                    }, 5000);
+                },
+                error: function(err) {
+                    loading.hide();
+                    alert("Error submitting form. Please try again.");
+                }
+            });
+        });
+
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceType = urlParams.get('service');
+            if (serviceType) {
+                scrollToFormWithService(serviceType);
+            }
+        });
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById('hostel').value = `Lat: ${latitude}, Lon: ${longitude}`;
+                }, function() {
+                    alert("Geolocation service failed. Please enter your location manually.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        const countdownDate = new Date("January 7, 2025 00:00:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+    <audio id="backgroundMusic" src="C:/Users/OSAFO Enoch Agyei/OneDrive/Desktop/Electricals/song.mp3" preload="auto"></audio>
+</body>
+</html>
